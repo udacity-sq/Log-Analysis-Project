@@ -72,7 +72,7 @@ log into the virtual machine if disconnected and ```cd``` into the ```vagrant```
 Type the following command: ```python news_data_analysis.py``` to run the python script and produce the output i.e. the answers to the questions.
 
 **Note:** Python version 3 needs to be installed along with the psycopg2 module for python. Download [python 3](https://www.python.org/downloads/). 
-Run command '''pip install psycopg2''' in command shell to install psycoppg2 module.
+Run command ```pip install psycopg2``` in command shell to install psycoppg2 module.
 
 # Resources:
 * PostgreSQL - Data Type Formatting Functions [Documentation](https://www.postgresql.org/docs/7.4/static/functions-formatting.html)
