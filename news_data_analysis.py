@@ -22,8 +22,9 @@ def popular_articles():
     print("\n")
     print("Query returns the most popular articles of all time:")
     query = """
-          select title, total_views, 'views' as views from articles
-          join total_views on articles.slug = total_views.slug limit 3;
+          select title, total_views, 'views' as views
+          from articles join total_views on articles.slug = total_views.slug
+          order by total_views DESC limit 3;
           """
     popular_articles = main(query)
     for row in popular_articles:
