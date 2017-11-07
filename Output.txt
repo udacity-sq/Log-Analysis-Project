@@ -1,0 +1,16 @@
+Query returns the most popular articles of all time:
+  Bad things gone, say good people - 170098 views
+  Balloon goons doomed - 84557 views
+  Bears love berries, alleges bear - 253801 views
+
+
+Query returns the most popular authors of all time:
+  Ursula La Multa - 507594 views
+  Rudolf von Treppenwitz - 423457 views
+  Anonymous Contributor - 170098 views
+  Markoff Chaney - 84557 views
+
+
+Query returns days when more than 1% of requests led to errors:
+JULY      17,2016 - 2.27774091146
+
