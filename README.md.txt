@@ -63,3 +63,11 @@ Type the following command: '''python news_data_analysis.py''' to run the python
 
 **Note**: Python version 3 needs to be installed along with the psycopg2 module for python. Download [python 3](https://www.python.org/downloads/). 
 Run command '''pip install psycopg2''' in command shell to install psycoppg2 module.
+
+# Resources:
+
+* PostgreSQL Data Types [Documentation](https://www.postgresql.org/docs/7.4/static/functions-formatting.html)
+* PostgreSQL Data/Time Functions [Documentation](https://www.postgresql.org/docs/9.1/static/functions-datetime.html)
+* Stackoverflow - PostgreSQL Join data from 3 tables [here](https://stackoverflow.com/questions/15799556/postgresql-join-data-from-3-tables)
+* DBA Exchange - PostgreSQL count with different condition on the same [query](https://stackoverflow.com/questions/15799556/postgresql-join-data-from-3-tables)
+* Udacity log analysis Project [resources](https://classroom.udacity.com/nanodegrees/nd004/parts/8d3e23e1-9ab6-47eb-b4f3-d5dc7ef27bf0/modules/bc51d967-cb21-46f4-90ea-caf73439dc59/lessons/262a84d7-86dc-487d-98f9-648aa7ca5a0f/concepts/d7166abe-4fa4-4af3-9a33-77729cdcff9a)
