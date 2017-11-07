@@ -31,26 +31,36 @@ The database includes three tables:
 * The log table includes one entry for each time a user has accessed the site.
 
 ## Create the following views:
-```CREATE view total_views AS select path,
+
+```
+CREATE view total_views AS select path,
 count(path) as total_views, substr(path, 10, length(path)) "slug" from log
 group by path
 order by views DESC
 limit 9;```
 
-```CREATE view most_popular AS select title, name, total_views from
+```
+CREATE view most_popular AS select title, name, total_views from
 articles join authors on articles.author = authors.id
-join total_views on articles.slug = total_views.slug;```
+join total_views on articles.slug = total_views.slug;
+```
 
-```CREATE VIEW log_time_PST AS select path, status, id, time::timestamp with time zone AT TIME ZONE 'PST' as time_pst
-from log;```
+```
+CREATE VIEW log_time_PST AS select path, status, id, time::timestamp with time zone AT TIME ZONE 'PST' as time_pst
+from log;
+```
 
-```CREATE VIEW daily as select, path, status, id, time_pst, EXTRACT(DAY from time_pst) as day
-from log_time_pst;```
+```
+CREATE VIEW daily as select, path, status, id, time_pst, EXTRACT(DAY from time_pst) as day
+from log_time_pst;
+```
 
-```CREATE VIEW percent_error AS
+```
+CREATE VIEW percent_error AS
 select day, count(id) filter(where status!='200 OK') as errors, count(id) as total_hits, (100 * ((count(id) filter(where status!='200 OK')
 )::float)/(count(id)::float)) as Percent_error
-from daily group by day;```
+from daily group by day;
+```
 
 Press ```CTRL-D``` to log out of psql.
 
