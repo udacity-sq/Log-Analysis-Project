@@ -37,7 +37,8 @@ CREATE view total_views AS select path,
 count(path) as total_views, substr(path, 10, length(path)) "slug" from log
 group by path
 order by views DESC
-limit 9;```
+limit 9;
+```
 
 ```
 CREATE view most_popular AS select title, name, total_views from
