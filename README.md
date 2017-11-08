@@ -37,8 +37,7 @@ CREATE view total_views AS select path,
 count(path) as total_views, substr(path, 10, length(path)) "slug" from log
 where status = '200 OK'
 group by path
-order by total_views DESC
-limit 9;
+order by total_views DESC;
 ```
 
 ```
