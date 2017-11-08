@@ -7,14 +7,15 @@ import psycopg2
 DBNAME = "news"
 
 
-def main(query):
+def get_query_results(query):
     # connect to database and return query results
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     c.execute(query)
     rows = c.fetchall()
-    return rows
     db.close()
+    return rows
+    
 
 
 def popular_articles():
@@ -26,9 +27,9 @@ def popular_articles():
           from articles join total_views on articles.slug = total_views.slug
           order by total_views DESC limit 3;
           """
-    popular_articles = main(query)
-    for row in popular_articles:
-        print " ", row[0], "-", row[1], row[2]
+    popular_articles = get_query_results(query)
+    for title, total_views, unused in popular_articles:
+        print (" {} - {} views".format(title, total_views)) 
 
 
 def most_popular_authors():
@@ -41,9 +42,9 @@ def most_popular_authors():
           group by name
           order by author_views DESC;
           """
-    popular_authors = main(query)
-    for row in popular_authors:
-        print " ", row[0], "-", row[1], row[2]
+    popular_authors = get_query_results(query)
+    for name, author_views, unused in popular_authors:
+        print (" {} - {} views".format(name, author_views))
 
 
 def percent_error():
@@ -51,15 +52,14 @@ def percent_error():
     print("\n")
     print("Query returns days when more than 1% of requests led to errors:")
     query = """
-           select DISTINCT to_char(time_pst, 'MONTH DD,YYYY') as day,
+           select DISTINCT to_char(time_pst, 'FMMONTH FMDD,YYYY') as day,
            percent_error from daily join percent_error
            on daily.day = percent_error.day
            where percent_error.percent_error >1;
            """
-    percent_error = main(query)
-    for row in percent_error:
-        print " ", row[0], "-", row[1]
-
+    percent_error = get_query_results(query)
+    for day, pct in percent_error:
+        print (" {} - {}".format(day, round(pct,2)))
 
 if __name__ == "__main__":
     popular_articles()
