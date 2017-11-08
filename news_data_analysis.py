@@ -28,7 +28,7 @@ def popular_articles():
           """
     popular_articles = get_query_results(query)
     for title, total_views, unused in popular_articles:
-        print (" {} - {} views".format(title, total_views))
+        print(" {} - {} views".format(title, total_views))
 
 
 def most_popular_authors():
@@ -43,7 +43,7 @@ def most_popular_authors():
           """
     popular_authors = get_query_results(query)
     for name, author_views, unused in popular_authors:
-        print (" {} - {} views".format(name, author_views))
+        print(" {} - {} views".format(name, author_views))
 
 
 def percent_error():
@@ -58,7 +58,8 @@ def percent_error():
            """
     percent_error = get_query_results(query)
     for day, pct in percent_error:
-        print (" {} - {}".format(day, round(pct, 2)))
+        print(" {} - {}% errors".format(day, round(pct, 2)))
+
 
 if __name__ == "__main__":
     popular_articles()
